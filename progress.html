@@ -4,15 +4,12 @@
 		<script>
 			var scanListUbuntu = ["2"];
 			var scanListWindows = [];
-			var testData = [[0.101, 0.90, 0.34, 0.45]];
+			var testData = [[.3, .3, .3, .3]];
 			$(document).ready(function () {
 				//Eventually, there will be a check for area of focus here.
 				//Eventually, there will be a check for progress data here.
 				revealModules(scanListUbuntu, testData);
 			});
-			function sayHi() {
-				alert("hi");
-			}
 			function revealModules(osList, dataList) {
 				for (var i=0; i<osList.length; i++) {
 					currTag = osList[i];
@@ -27,6 +24,24 @@
 							$("#barText_" + j + "_" + osList[i]).css("color", "rgba(255, 255, 255, 1)");
 						}
 					}
+					var masteryVal = (currData[2] + currData[3]) * 50;
+					var compVal = (currData[0] + currData[1] + currData[2] + currData[3]) * 25;
+					mRed = ((200 - masteryVal * 2) * 2.55);
+					mGrn = (masteryVal * 2.55 * 2);
+					if (mGrn > 255) {
+						mGrn = 255;
+					}
+					mGrn -= 10;
+					if (mGrn < 0) {
+						mGrn = 0;
+					}
+					if (mRed > 255) {
+						mRed = 255;
+					}
+					masteryColor = "rgba(" + mRed.toFixed(0) + ", " + mGrn.toFixed(0) + ", 0, 1)";
+					$("#score_" + osList[i]).css("color", masteryColor);
+					$("#score_" + osList[i]).html(masteryVal.toFixed(2) + "%");
+					$("#comp_" + osList[i]).html(compVal.toFixed(2) + "%");
 				}
 			}
 			function windowsBtn() {
@@ -37,6 +52,7 @@
 			body {
 				margin: 0px;
 				padding: 0px;
+				overflow: hidden;
 			}
 			.moduleBar {
 				/*border: 1px solid #dddddd;*/
@@ -136,7 +152,7 @@
 			.videoBar, .textBar, .labsBar, .quizBar {
 				margin-top: 14px;
 				height: 20px;
-				width: 1px;
+				width: 0px;
 				-webkit-transition: width 0.7s;
 				transition: width 0.7s;
 				box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
