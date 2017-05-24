@@ -18,7 +18,7 @@
 						currPercDat = currData[j] * 100;
 						dispPerc = currPercDat.toFixed(2) + "%"
 						$("#" + j + "_" + currTag).css("width", dispPerc);
-						if (currPercDat > 10) {
+						if (currPercDat > 15) {
 							//Assuming enough space for a text reveal
 							$("#barText_" + j + "_" + osList[i]).html(dispPerc);
 							$("#barText_" + j + "_" + osList[i]).css("color", "rgba(255, 255, 255, 1)");
