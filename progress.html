@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+			var scanList = ["2"];
+			var testVid = 0.83;
+			var testRead = 0.90;
+			var testLab = 0.34;
+			var testQuiz = 0.45;
+			$(document).ready(function () {
+				
+			});
+		</script>
+		<style>
+			body {
+				margin: 0px;
+				padding: 0px;
+			}
+			.moduleBar {
+				border: 1px solid black;
+				width: 100%;
+				height: 150px;
+			}
+			.titleBox {
+				background-color: #ffdddd;
+				height: 100%;
+				width: 150px;
+				float: left;
+			}
+			.barBox {
+				background-color: #ddffdd;
+				height: 100%;
+				overflow: hidden;
+			}
+			.dataBox {
+				background-color: #ddddff;
+				height: 100%;
+				width: 200px;
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="moduleBar">
+			<div class="titleBox">
+				<img class="titleImg" src=""></img>
+				<div class="titleText"></div>
+			</div>
+			<div class="dataBox">
+				<div class="textField">
+					<div class="videoText" id="videoText_2"></div>
+					<div class="textText" id="textText_2"></div>
+					<div class="labsText" id="labsText_2"></div>
+					<div class="quizText" id="quizText_2"></div>
+				</div>
+				<div class="btnField">
+					<div class="btn">Study Module</div>
+				</div>
+			</div>
+			<div class="barBox">
+				<div class="videoBar" id="video_2"></div>
+				<div class="textBar" id="text_2"></div>
+				<div class="labsBar" id="labs_2"></div>
+				<div class="quizBar" id="quiz_2"></div>
+			</div>
+		</div>
+	</body>
+</html>
