@@ -2,16 +2,33 @@
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script>
-			var scanList = ["2"];
-			var testVid = 0.83;
-			var testRead = 0.90;
-			var testLab = 0.34;
-			var testQuiz = 0.45;
+			var scanListUbuntu = ["2"];
+			var scanListWindows = [];
+			var testData = [[0.051, 0.90, 0.34, 0.45]];
 			$(document).ready(function () {
-				for (var i = 0; i < scanList.length; i++) {
-					alert(scanList[i]);
-				}
+				//Eventually, there will be a check for area of focus here.
+				//Eventually, there will be a check for progress data here.
+				revealModules(scanListUbuntu, testData);
 			});
+			function revealModules(osList, dataList) {
+				for (var i=0; i<osList.length; i++) {
+					currTag = osList[i];
+					currData = dataList[i];
+					for (var j=0; j<currData.length; j++) {
+						currPercDat = currData[j] * 100;
+						dispPerc = currPercDat.toFixed(2) + "%"
+						$("#" + j + "_" + currTag).css("width", dispPerc);
+						if (currPercDat > 5) {
+							//Assuming enough space for a text reveal
+							$("#barText_" + j + "_" + osList[i]).html(dispPerc);
+							$("#barText_" + j + "_" + osList[i]).css("color", "rgba(255, 255, 255, 1)");
+						}
+					}
+				}
+			}
+			function windowsBtn() {
+				//fade out both windows, hide ubuntu & display windows, 
+			}
 		</script>
 		<style>
 			body {
@@ -116,9 +133,9 @@
 			.videoBar, .textBar, .labsBar, .quizBar {
 				margin-top: 14px;
 				height: 20px;
-				width: 100px;
-				-webkit-transition: width 0.4s, color 0.4s;
-				transition: width 0.4s, color 0.4s;
+				width: 1px;
+				-webkit-transition: width 0.7s;
+				transition: width 0.7s;
 				box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 				
 			}
@@ -136,11 +153,13 @@
 			}
 			.barText {
 				float: right;
-				color: #ffffff;
+				color: rgba(255, 255, 255, 0);
 				font-family: "Open Sans", monospace;
 				font-size: 14px;
 				font-weight: bold;
 				margin-right: 10px;
+				-webkit-transition: color 0.7s;
+				transition: color 0.7s;
 			}
 		</style>
 	</head>
@@ -178,16 +197,16 @@
 				</div>
 			</div>
 			<div class="barBox">
-				<div class="videoBar" id="video_2">
+				<div class="videoBar" id="0_2">
 					<div class="barText" id="barText_0_2">20%</div>
 				</div>
-				<div class="textBar" id="text_2">
+				<div class="textBar" id="1_2">
 					<div class="barText" id="barText_1_2">20%</div>
 				</div>
-				<div class="labsBar" id="labs_2">
+				<div class="labsBar" id="2_2">
 					<div class="barText" id="barText_2_2">20%</div>
 				</div>
-				<div class="quizBar" id="quiz_2">
+				<div class="quizBar" id="3_2">
 					<div class="barText" id="barText_3_2">20%</div>
 				</div>
 			</div>
