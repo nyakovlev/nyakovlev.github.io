@@ -4,13 +4,13 @@
 		<script>
 			var scanListUbuntu = ["2"];
 			var scanListWindows = [];
-			var testData = [[.3, .3, .3, .3]];
-			$(document).ready(function () {
-				//Eventually, there will be a check for area of focus here.
-				//Eventually, there will be a check for progress data here.
-				revealModules(scanListUbuntu, testData);
-			});
-			function revealModules(osList, dataList) {
+			function revealModules(os, dataList) {
+				var osList;
+				if (os == "ubuntu") {
+					osList = scanListUbuntu;
+				} else {
+					osList = scanListWindows;
+				}
 				for (var i=0; i<osList.length; i++) {
 					currTag = osList[i];
 					currData = dataList[i];
