@@ -26,6 +26,7 @@
 				height: 100%;
 				width: 200px;
 				float: left;
+				border-right: 1px solid #dddddd;
 			}
 			.barBox {
 				background-color: #ddffdd;
@@ -38,13 +39,61 @@
 				width: 250px;
 				float: right;
 			}
+			.legend {
+				width: 100%;
+				margin: 15px;
+				overflow: hidden;
+			}
+			.key {
+				float: left;
+				width: 100px;
+			}
+			.keyBox {
+				width: 12px;
+				height: 12px;
+				margin: 1px 10px;
+				float: left;
+			}
+			.keyText {
+				font-family: "Open Sans", monospace;
+				font-size: 12px;
+			}
+			.titleImg {
+				margin: 5px auto;
+				display: block;
+			}
+			.titleText {
+				font-family: "Open Sans", monospace;
+				margin: 5px;
+				font-size: 16px;
+				text-align: center;
+			}
 		</style>
 	</head>
 	<body>
+		<div class="legend">
+			<div class="key">
+				<div class="keyBox" style="background-color: #f24313"></div>
+				<div class="keyText">Videos</div>
+			</div>
+			<div class="key">
+				<div class="keyBox" style="background-color: #ffcc32"></div>
+				<div class="keyText">Reading</div>
+			</div>
+			<div class="key">
+				<!--<div class="keyBox" style="background-color: #52f213"></div>-->
+				<div class="keyBox" style="background-color: #2cdb11"></div>
+				<div class="keyText">Labs</div>
+			</div>
+			<div class="key">
+				<div class="keyBox" style="background-color: #226ee8"></div>
+				<div class="keyText">Quizzes</div>
+			</div>
+		</div>
 		<div class="moduleBar">
 			<div class="titleBox">
-				<img class="titleImg" src=""></img>
-				<div class="titleText"></div>
+				<img class="titleImg" src="https://nyakovlev.github.io/images/systemTasksUb.png"></img>
+				<div class="titleText"><b>Module 2</b><br>Basic Ubuntu Security</div>
 			</div>
 			<div class="dataBox">
 				<div class="textField">
