@@ -68,6 +68,46 @@
 				font-size: 16px;
 				text-align: center;
 			}
+			.textField {
+				width: 80px;
+				height: 100%;
+				background-color: #ffffdd;
+				float: left;
+			}
+			.btnField {
+				overflow: hidden;
+				height: 100%;
+			}
+			.btn {
+				margin: 30px auto;
+				padding: 10px;
+				width: 120px;
+				background-color: #0077de;
+				text-align: center;
+				color: #ffffff;
+				font-family: "Open Sans", monospace;
+				font-weight: bold;
+				cursor: pointer;
+				-webkit-transition: 0.4s;
+				transition: 0.4s;
+			}
+			.btn:hover {
+				background-color: #4a98db;
+			}
+			.scoreLabel, .compLabel {
+				text-align: center;
+				font-family: "Open Sans", monospace;
+				font-size: 14px;
+				margin: 5px auto;
+			}
+			.videoText, .textText, .labsText, .quizText {
+				width: 100%;
+				border: 1px solid black;
+				height: 20px;
+				font-family: "Open Sans", monospace;
+				font-size: 16px;
+				margin-top: 12px;
+			}
 		</style>
 	</head>
 	<body>
@@ -96,6 +136,7 @@
 				<div class="titleText"><b>Module 2</b><br>Basic Ubuntu Security</div>
 			</div>
 			<div class="dataBox">
+				<div style="width: 10px; height: 100%; float: left;"></div>
 				<div class="textField">
 					<div class="videoText" id="videoText_2"></div>
 					<div class="textText" id="textText_2"></div>
@@ -103,6 +144,8 @@
 					<div class="quizText" id="quizText_2"></div>
 				</div>
 				<div class="btnField">
+					<div class="scoreLabel">Mastery: <b id="score_2">20%</b></div>
+					<div class="compLabel">Completion: <b id="comp_2">20%</b></div>
 					<div class="btn">Study Module</div>
 				</div>
 			</div>
