@@ -4,6 +4,12 @@
 		<script>
 			var scanListUbuntu = ["2"];
 			var scanListWindows = [];
+			$(document).ready(function() {
+				if (typeof progressData !== 'undefined') {
+					alert(progressData);
+					revealModules("ubuntu", progressData);
+				}
+			});
 			function revealModules(os, dataList) {
 				var osList;
 				if (os == "ubuntu") {
