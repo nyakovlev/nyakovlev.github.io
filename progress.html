@@ -8,7 +8,9 @@
 			var testLab = 0.34;
 			var testQuiz = 0.45;
 			$(document).ready(function () {
-				
+				for (var i = 0; i < scanList.length; i++) {
+					alert(scanList[i]);
+				}
 			});
 		</script>
 		<style>
@@ -17,24 +19,26 @@
 				padding: 0px;
 			}
 			.moduleBar {
-				border: 1px solid black;
+				/*border: 1px solid #dddddd;*/
 				width: 100%;
 				height: 150px;
+				margin: 10px auto;
 			}
 			.titleBox {
-				background-color: #ffdddd;
+				/*background-color: #ffdddd;*/
 				height: 100%;
 				width: 200px;
 				float: left;
 				border-right: 1px solid #dddddd;
 			}
 			.barBox {
-				background-color: #ddffdd;
+				/*background-color: #ddffdd;*/
 				height: 100%;
 				overflow: hidden;
 			}
 			.dataBox {
-				background-color: #ddddff;
+				/*background-color: #ddddff;*/
+				border-left: 1px solid #dddddd;
 				height: 100%;
 				width: 250px;
 				float: right;
@@ -97,52 +101,76 @@
 			.scoreLabel, .compLabel {
 				text-align: center;
 				font-family: "Open Sans", monospace;
-				font-size: 14px;
+				font-size: 20px;
 				margin: 5px auto;
+				color: #ababab;
 			}
 			.videoText, .textText, .labsText, .quizText {
 				width: 100%;
-				border: 1px solid black;
+				background-color: #ababab;
 				height: 20px;
 				font-family: "Open Sans", monospace;
-				font-size: 16px;
-				margin-top: 12px;
+				font-size: 14px;
+				margin-top: 14px;
+			}
+			.videoBar, .textBar, .labsBar, .quizBar {
+				margin-top: 14px;
+				height: 20px;
+				width: 100px;
+				-webkit-transition: width 0.4s, color 0.4s;
+				transition: width 0.4s, color 0.4s;
+				box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+				
+			}
+			#videoKey, .videoBar {
+				background-color: #f24313;
+			}
+			#textKey, .textBar {
+				background-color: #ffcc32;
+			}
+			#labsKey, .labsBar {
+				background-color: #2cdb11;
+			}
+			#quizKey, .quizBar {
+				background-color: #226ee8;
+			}
+			.barText {
+				float: right;
+				color: #ffffff;
+				font-family: "Open Sans", monospace;
+				font-size: 14px;
+				font-weight: bold;
+				margin-right: 10px;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="legend">
 			<div class="key">
-				<div class="keyBox" style="background-color: #f24313"></div>
+				<div class="keyBox" id="videoKey"></div>
 				<div class="keyText">Videos</div>
 			</div>
 			<div class="key">
-				<div class="keyBox" style="background-color: #ffcc32"></div>
+				<div class="keyBox" id="textKey"></div>
 				<div class="keyText">Reading</div>
 			</div>
 			<div class="key">
 				<!--<div class="keyBox" style="background-color: #52f213"></div>-->
-				<div class="keyBox" style="background-color: #2cdb11"></div>
+				<div class="keyBox" id="labsKey"></div>
 				<div class="keyText">Labs</div>
 			</div>
 			<div class="key">
-				<div class="keyBox" style="background-color: #226ee8"></div>
+				<div class="keyBox" id="quizKey"></div>
 				<div class="keyText">Quizzes</div>
 			</div>
 		</div>
+		<hr>
 		<div class="moduleBar">
 			<div class="titleBox">
 				<img class="titleImg" src="https://nyakovlev.github.io/images/systemTasksUb.png"></img>
 				<div class="titleText"><b>Module 2</b><br>Basic Ubuntu Security</div>
 			</div>
 			<div class="dataBox">
-				<div style="width: 10px; height: 100%; float: left;"></div>
-				<div class="textField">
-					<div class="videoText" id="videoText_2"></div>
-					<div class="textText" id="textText_2"></div>
-					<div class="labsText" id="labsText_2"></div>
-					<div class="quizText" id="quizText_2"></div>
-				</div>
 				<div class="btnField">
 					<div class="scoreLabel">Mastery: <b id="score_2">20%</b></div>
 					<div class="compLabel">Completion: <b id="comp_2">20%</b></div>
@@ -150,11 +178,20 @@
 				</div>
 			</div>
 			<div class="barBox">
-				<div class="videoBar" id="video_2"></div>
-				<div class="textBar" id="text_2"></div>
-				<div class="labsBar" id="labs_2"></div>
-				<div class="quizBar" id="quiz_2"></div>
+				<div class="videoBar" id="video_2">
+					<div class="barText" id="barText_0_2">20%</div>
+				</div>
+				<div class="textBar" id="text_2">
+					<div class="barText" id="barText_1_2">20%</div>
+				</div>
+				<div class="labsBar" id="labs_2">
+					<div class="barText" id="barText_2_2">20%</div>
+				</div>
+				<div class="quizBar" id="quiz_2">
+					<div class="barText" id="barText_3_2">20%</div>
+				</div>
 			</div>
 		</div>
+		<hr>
 	</body>
 </html>
