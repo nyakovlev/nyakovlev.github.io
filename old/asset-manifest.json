@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b1a73a58.chunk.css",
+    "main.js": "/static/js/main.3dd34ea5.chunk.js",
+    "main.js.map": "/static/js/main.3dd34ea5.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.86870004.js",
+    "runtime-main.js.map": "/static/js/runtime-main.86870004.js.map",
+    "static/js/2.03397173.chunk.js": "/static/js/2.03397173.chunk.js",
+    "static/js/2.03397173.chunk.js.map": "/static/js/2.03397173.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.9f6125c36cac70f5f2dc83468777906a.js": "/precache-manifest.9f6125c36cac70f5f2dc83468777906a.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.b1a73a58.chunk.css.map": "/static/css/main.b1a73a58.chunk.css.map",
+    "static/js/2.03397173.chunk.js.LICENSE.txt": "/static/js/2.03397173.chunk.js.LICENSE.txt",
+    "static/media/noir_sunset.svg": "/static/media/noir_sunset.3b48022c.svg",
+    "static/media/on_the_ground.mp3": "/static/media/on_the_ground.8efa9dc5.mp3",
+    "static/media/shrek.png": "/static/media/shrek.74508cc1.png",
+    "static/media/stubble_1_left.svg": "/static/media/stubble_1_left.e5dd0d5d.svg",
+    "static/media/stubble_1_right.svg": "/static/media/stubble_1_right.aa66f312.svg",
+    "static/media/tack.wav": "/static/media/tack.9e9ac630.wav"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.86870004.js",
+    "static/js/2.03397173.chunk.js",
+    "static/css/main.b1a73a58.chunk.css",
+    "static/js/main.3dd34ea5.chunk.js"
+  ]
+}
