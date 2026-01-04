@@ -62,8 +62,8 @@ class Bird {
 
         document.addEventListener('mousedown', e => {
             this.setVelocity({
-                x: (e.clientX - this.loc.x) / 100.0,
-                y: (e.clientY - this.loc.y) / 100.0,
+                x: (e.clientX - this.loc.x) / 600.0,
+                y: (e.clientY - this.loc.y) / 600.0,
             })
         })
     }
