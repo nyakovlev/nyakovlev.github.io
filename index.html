@@ -25,6 +25,7 @@ class Bird {
         this.element.style.width = `100px`
         this.element.style.height = `100px`
         this.element.style.position = 'absolute'
+        this.element.style.userSelect = 'none'
         this.setPosition(this.loc)
         this.positions = new Map()
         this.keys = []
@@ -57,6 +58,13 @@ class Bird {
                 this.keys.splice(this.keys.indexOf(e.key), 1)
                 this.updateControls()
             }
+        })
+
+        document.addEventListener('mousedown', e => {
+            this.setVelocity({
+                x: (e.clientX - this.loc.x) / 100.0,
+                y: (e.clientY - this.loc.y) / 100.0,
+            })
         })
     }
 
