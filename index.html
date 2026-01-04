@@ -6,6 +6,7 @@
         position: relative;
         background-color: rgb(22, 22, 22);
         overflow: hidden;
+        height: 100vh;
     }
 </style>
 <script>
@@ -120,6 +121,11 @@ class Bird {
     }
 
     setPosition = (loc) => {
+        let d = this.space.getBoundingClientRect()
+        loc.x = Math.max(0, loc.x)
+        loc.y = Math.max(0, loc.y)
+        loc.x = Math.min(d.width - 100, loc.x)
+        loc.y = Math.min(d.height - 100, loc.y)
         this.loc = loc
         this.element.style.left = `${this.loc.x}px`
         this.element.style.top = `${this.loc.y}px`
