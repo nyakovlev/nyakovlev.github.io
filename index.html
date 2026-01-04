@@ -1,1 +1,168 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/logo192.png"/><link rel="manifest" href="/manifest.json"/><title>React App</title><script defer="defer" src="/static/js/main.46d07e26.js"></script><link href="/static/css/main.0acb354b.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        position: relative;
+        background-color: rgb(22, 22, 22);
+    }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+class Bird {
+    controls = [
+        'ArrowUp',
+        'ArrowDown',
+        'ArrowLeft',
+        'ArrowRight',
+    ]
+
+    constructor(space, origin) {
+        this.space = space
+        this.loc = origin
+        this.element = document.createElement('div')
+        this.element.style.width = `100px`
+        this.element.style.height = `100px`
+        this.element.style.position = 'absolute'
+        this.setPosition(this.loc)
+        this.positions = new Map()
+        this.keys = []
+
+        for (let i=0; i<8; i++) {
+            let img = document.createElement('img')
+            img.src = `pigeon/frame000${i}.png`
+            img.style.position = 'absolute'
+            img.style.left = '0px'
+            img.style.top = '0px'
+            img.style.width = '100%'
+            img.style.height = '100%'
+            img.style.visibility = 'hidden'
+            this.positions.set(i, img)
+            this.element.appendChild(img)
+        }
+
+        this.setImage(0)
+        this.space.appendChild(this.element)
+
+        document.addEventListener('keydown', e => {
+            if (this.controls.includes(e.key) && !this.keys.includes(e.key)) {
+                this.keys.push(e.key)
+                this.updateControls()
+            }
+        })
+
+        document.addEventListener('keyup', e => {
+            if (this.keys.includes(e.key)) {
+                this.keys.splice(this.keys.indexOf(e.key), 1)
+                this.updateControls()
+            }
+        })
+    }
+
+    updateControls = () => {
+        if (this.keys.length == 1) {
+            switch (this.keys[0]) {
+                case 'ArrowUp':
+                    this.setVelocity({x: 0, y: -1})
+                    break
+                case 'ArrowDown':
+                    this.setVelocity({x: 0, y: 1})
+                    break
+                case 'ArrowLeft':
+                    this.setVelocity({x: -1, y: 0})
+                    break
+                case 'ArrowRight':
+                    this.setVelocity({x: 1, y: 0})
+                    break
+            }
+        } else if (this.keys.length == 2) {
+            if (this.keys.includes('ArrowUp')) {
+                if (this.keys.includes('ArrowLeft')) {
+                    this.setVelocity({x: -1, y: -1})
+                } else if (this.keys.includes('ArrowRight')) {
+                    this.setVelocity({x: 1, y: -1})
+                } else {
+                    this.stop()
+                }
+            } else if (this.keys.includes('ArrowDown')) {
+                if (this.keys.includes('ArrowLeft')) {
+                    this.setVelocity({x: -1, y: 1})
+                } else if (this.keys.includes('ArrowRight')) {
+                    this.setVelocity({x: 1, y: 1})
+                } else {
+                    this.stop()
+                }
+            } else {
+                this.stop()
+            }
+        } else {
+            this.stop()
+        }
+    }
+
+    setImage = (direction) => {
+        if (this.currentImg) {
+            this.currentImg.style.visibility = 'hidden'
+        }
+        this.direction = direction
+        this.currentImg = this.positions.get(this.direction)
+        this.currentImg.style.visibility = 'visible'
+    }
+
+    setPosition = (loc) => {
+        this.loc = loc
+        this.element.style.left = `${this.loc.x}px`
+        this.element.style.top = `${this.loc.y}px`
+    }
+
+    stop = () => {
+        if (this.movement) clearInterval(this.movement)
+    }
+
+    setVelocity = (vec) => {
+        this.stop()
+        this.movement = setInterval(() => this.setPosition({
+            x: this.loc.x + vec.x * 3,
+            y: this.loc.y + vec.y * 3,
+        }))
+        if (vec.x > 0) {
+            if (vec.y > 0) {
+                this.setImage(1)
+            } else if (vec.y < 0) {
+                this.setImage(3)
+            } else {
+                this.setImage(2)
+            }
+        } else if (vec.x < 0) {
+            if (vec.y > 0) {
+                this.setImage(7)
+            } else if (vec.y < 0) {
+                this.setImage(5)
+            } else {
+                this.setImage(6)
+            }
+        } else {
+            if (vec.y > 0) {
+                this.setImage(0)
+            } else if (vec.y < 0) {
+                this.setImage(4)
+            } else {
+                this.setImage(4)
+            }
+        }
+    }
+
+    destroy = () => {
+        this.element.remove()
+    }
+}
+
+let mc = new Bird(document.body, {x: 100, y: 100})
+
+})
+</script>
+</head>
+<body>
+</body>
+</html>
